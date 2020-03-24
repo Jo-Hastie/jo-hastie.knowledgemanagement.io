@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<title>Add New Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Knowledge Management System</span>
+</div>
+
+<!-- Sidebar/menu -->
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+    </div>
+    <div class="w3-col w3-bar">
+      <span>Welcome, <strong>User</strong></span><br>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+    <a href="documents.html" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-folder fa-fw"></i>  Documents </a>
+    <a href="messages.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i>  Messages </a>
+    <a href="favourites.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-star fa-fw"></i>  Favourites </a>
+    <a href="userguide.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw"></i>  User Guide </a>
+    <a href="settings.html" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  </div>
+</nav>
+
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+
+
+
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  </style>
+  <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+  </head>
+  <body>
+  
+  <h3>Add document</h3>
+  
+  <div class="container">
+      <label for="filename">Name</label>
+      <input type="text" id="filename" name="filename" placeholder="Enter file name ">
+
+      <label for="owner">Author</label>
+      <input type="text" id="owner" name="owner" placeholder="Enter your name ">
+
+
+      <label for="category">Category</label>
+      <select id="category" name="category">
+        <option value="risk">Risk</option>
+        <option value="change">Change</option>
+        <option value="scope">Scope</option>
+      </select>
+
+      <label for="tags"></label>
+      <input type="text" id="tags" name="tags" placeholder= "Enter tags">
+  
+      <label for="comment">Comments</label>
+      <textarea id="comment" name="comment" placeholder="Add any comments.." style="height:200px"></textarea>
+  
+    
+  </div>
+    <input id="fileUploadControl" id="fileUploadControl" type="file">
+  <input type="submit" onclick="submit()">
+
+
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// add document 
+async function submit(){
+  /* 
+    {
+      name: 'example name',
+      owner: 'Example owner',
+      dateCreated: date,
+      category: 'example category',
+      tags: ['tag1', 'tag2'],
+      comments: 'example comment'
+      contentUrl: './documents/exampledoc.doc' 
+    }
+
+  */
+    let name = document.getElementById("filename").value
+
+    let owner = document.getElementById("owner").value
+
+    let category = document.getElementById("category").value
+
+    let tags = document.getElementById("tags").value
+
+    let comment = document.getElementById("comment").value
+
+    let tagsArray= tags.split(",")
+
+    let now = Date.now()
+    let date = new Date(now)
+  
+
+    let odOptions = {
+      clientId: "3c91df9a-947e-4e6a-b39c-f05ba342a11d",
+      action: "save",
+      sourceInputElementId: "fileUploadControl",
+      openInNewWindow: true,
+      advanced: {},
+      success: function(files){
+        console.log(files)
+      },
+      progress: function(percent){},
+      cancel: function(){},
+      error: function(error){
+        console.log(error)
+      }
+
+    }
+    OneDrive.save(odOptions)
+
+    const documentAdd = {
+      name: name,
+      owner: owner,
+      dateCreated: date,
+      category: category,
+      tags: tagsArray,
+      comments: comment,
+      contentUrl: 'empty'
+    }
+
+    console.log(documentAdd)
+
+    const docUrl = "http://localhost:3000/makethings"
+    fetch(docUrl,{
+      method: "POST",
+      mode: 'cors',
+      headers:{
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(documentAdd)
+    }).then(res=>{
+      console.log(res)
+    })
+
+  }
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
