@@ -150,6 +150,8 @@ async function submit(){
     }
 
   */
+
+  // get details of new doc and submit to backend server 
     let name = document.getElementById("filename").value
 
     let owner = document.getElementById("owner").value
@@ -164,25 +166,6 @@ async function submit(){
 
     let now = Date.now()
     let date = new Date(now)
-  
-
-    let odOptions = {
-      clientId: "3c91df9a-947e-4e6a-b39c-f05ba342a11d",
-      action: "save",
-      sourceInputElementId: "fileUploadControl",
-      openInNewWindow: true,
-      advanced: {},
-      success: function(files){
-        console.log(files)
-      },
-      progress: function(percent){},
-      cancel: function(){},
-      error: function(error){
-        console.log(error)
-      }
-
-    }
-    OneDrive.save(odOptions)
 
     const documentAdd = {
       name: name,
