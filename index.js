@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cors())
 const port = 3000
 
-mongoose.connect(process.env.MONGODB_URL)
+/*mongoose.connect(process.env.MONGODB_URL)
 
 /*
 const MongoClient = require('mongodb').MongoClient;
