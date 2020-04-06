@@ -21,7 +21,7 @@ client.connect(err => {
   // perform actions on the collection object
   client.close();
 });
-
+*/
 /* set up the mongo client */
 
 const mongoClient = mongodb.MongoClient;
@@ -70,27 +70,7 @@ app.post("/makethings", (request, response) => {
     })
 })
 
-mongoClient.connect(mongoUrl, (err, db) => {
-    if(err) throw err;
-    let dbx = db.db("knowledgemanagement")
-    dbx.createCollection("Y", (err, res) => {
-        if (err) throw err;
-        console.log("Good stuff")
-        db.close();
-    })*/
-    
-    let dbz = {name: "anyname", status: "anystatus" };
-    dbx.collection("risk").insertOne(dbz, (err, res) => {
-        if (err) throw err;
-        console.log(res)
-    }
-    )
-    dbx.collection("risk").find({}).toArray((err, res) => {
-        if(err) throw err;
-        console.log(res)
-    })
-    db.close();
-})
+
 
  /* test to show that the applicaiton is connected to the port */
 
