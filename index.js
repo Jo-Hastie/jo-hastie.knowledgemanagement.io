@@ -70,12 +70,6 @@ app.post("/makethings", (request, response) => {
     })
 })
 
-
-
-{name: "anyname", status: "anystatus" }
-
-
-
 mongoClient.connect(mongoUrl, (err, db) => {
     if(err) throw err;
     let dbx = db.db("knowledgemanagement")
