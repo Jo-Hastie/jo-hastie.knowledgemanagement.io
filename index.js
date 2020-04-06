@@ -1,6 +1,7 @@
 /* import the libararies to be used */
 const express = require("express");
-const mongodb = require ("mongodb")
+const mongodb = require ("mongodb");
+const mongoose = require ("mongoose");
 const cors = require("cors")
 
 /* use apps and set the port */
@@ -9,6 +10,9 @@ app.use(express.json())
 app.use(cors())
 const port = 3000
 
+mongoose.connect(process.env.MONGODB_URL)
+
+/*
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://<jhasti202@caledonian.ac.uk>:<Yellow55>@cluster0-vniam.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
@@ -19,7 +23,7 @@ client.connect(err => {
 });
 
 /* set up the mongo client */
-/*
+
 const mongoClient = mongodb.MongoClient;
 const mongoUrl = "mongodb://127.0.0.1:27017/"
 
@@ -32,7 +36,7 @@ app.get("/", (request, response) => {
 })
  
 /* set up get connection to database */
-/*
+
 app.get("/getThings", (request, response) => {
 
      mongoClient.connect(mongoUrl, (err, db) => {
@@ -50,7 +54,7 @@ app.get("/getThings", (request, response) => {
 })
 
 /* set up create connection to database */
-/*
+
 app.post("/makethings", (request, response) => {
     console.log(request.body.contentUrl)
     mongoClient.connect(mongoUrl, (err, db) => {
@@ -69,7 +73,7 @@ app.post("/makethings", (request, response) => {
 
 /*
 {name: "anyname", status: "anystatus" }
-*/
+
 
 
 /*mongoClient.connect(mongoUrl, (err, db) => {
@@ -95,6 +99,5 @@ app.post("/makethings", (request, response) => {
 })
 */
  /* test to show that the applicaiton is connected to the port */
-/*
+
  app.listen(port, () => console.log("Up and running on port 3000"));
-*/
