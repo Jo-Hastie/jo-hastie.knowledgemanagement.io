@@ -18,4 +18,7 @@ const mongoClient = mongodb.MongoClient;
 const mongoUrl = "mongodb://127.0.0.1:27017/"
 
 
- app.listen(process.env.port, () => console.log("Up and running on port 3000"));
+ app.listen(process.env.port ||3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
+ //} => console.log("Up and running on port 3000"));
