@@ -18,4 +18,4 @@ const mongoClient = mongodb.MongoClient;
 const mongoUrl = "mongodb://127.0.0.1:27017/"
 
 
- app.listen(port, () => console.log("Up and running on port 3000"));
+ app.listen(process.env.port, () => console.log("Up and running on port 3000"));
