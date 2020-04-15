@@ -8,7 +8,7 @@ const cors = require("cors")
 const app = express();
 app.use(express.json())
 app.use(cors())
-let port = process.env.port||3000;
+let port = process.env.PORT||3000;
 
 //mongoose.connect(process.env.MONGODB_URL)//
 
@@ -18,7 +18,7 @@ const mongoClient = mongodb.MongoClient;
 const mongoUrl = "mongodb://127.0.0.1:27017/"
 
 
- app.listen(process.env.port ||3000, function(){
+ app.listen(process.env.PORT||3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
  //} => console.log("Up and running on port 3000"));
