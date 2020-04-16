@@ -29,6 +29,7 @@ app.get("/", (request, response) => {
 
 app.get("/getThings", (request, response) => {
 
+/*
      mongoClient.connect(mongoUrl, (err, db) => {
         if(err) throw err;
         let dbx = db.db("knowledgemanagement")
@@ -62,7 +63,7 @@ app.post("/makethings", (request, response) => {
 
 
 
-
+*/
  //test to show that the applicaiton is connected to the port //
 
  app.listen(process.env.PORT || 3000);
