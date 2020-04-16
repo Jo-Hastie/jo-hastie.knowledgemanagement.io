@@ -8,7 +8,7 @@ const cors = require("cors")
 const app = express();
 app.use(express.json())
 app.use(cors())
-let port = process.env.PORT||3000;
+let port = process.env.port||3000;
 
 //mongoose.connect(process.env.MONGODB_URL)//
 
@@ -29,7 +29,6 @@ app.get("/", (request, response) => {
 
 app.get("/getThings", (request, response) => {
 
-/*
      mongoClient.connect(mongoUrl, (err, db) => {
         if(err) throw err;
         let dbx = db.db("knowledgemanagement")
@@ -63,7 +62,7 @@ app.post("/makethings", (request, response) => {
 
 
 
-*/
+
  //test to show that the applicaiton is connected to the port //
 
- app.listen(process.env.PORT || 3000);
+ app.listen(port, () => console.log("Up and running on port 3000"));
