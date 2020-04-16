@@ -22,7 +22,7 @@ app.get("/a", (request, response) =>{
 })
 
 app.get("/", (request, response) => {
-    response.send('Hello world')
+    response.send('Hello world ')
 })
  
 //set up get connection to database //
