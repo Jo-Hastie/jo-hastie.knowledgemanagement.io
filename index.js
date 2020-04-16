@@ -66,3 +66,24 @@ app.post("/makethings", (request, response) => {
  //test to show that the applicaiton is connected to the port //
 
  app.listen(port, () => console.log("Up and running on port 3000"));
+
+ const {
+    Stitch,
+    RemoteMongoClient,
+    AnonymousCredential
+} = require('mongodb-stitch-browser-sdk');
+
+const client = Stitch.initializeDefaultAppClient('knowledgerepository-uwrwb');
+
+const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('Cluster0');
+
+client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+  db.collection('Assumption').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
+).then(() =>
+  db.collection('Assmption').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
+).then(docs => {
+    console.log("Found docs", docs)
+    console.log("[MongoDB Stitch] Connected to Stitch")
+}).catch(err => {
+    console.error(err)
+});

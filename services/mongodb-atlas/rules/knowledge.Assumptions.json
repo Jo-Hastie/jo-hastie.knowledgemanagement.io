@@ -1,0 +1,23 @@
+{
+    "database": "knowledge",
+    "collection": "Assumptions",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "fields": {
+                "category": {},
+                "comments": {},
+                "dateCreated": {},
+                "documentName": {},
+                "ownerName": {},
+                "tags": {}
+            },
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "additional_fields": {}
+        }
+    ],
+    "schema": {}
+}
