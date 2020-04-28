@@ -1,4 +1,4 @@
-// import the libararies to be used //
+// import the libraries to be used //
 const express = require("express");
 const mongodb = require ("mongodb");
 const mongoose = require ("mongoose");
