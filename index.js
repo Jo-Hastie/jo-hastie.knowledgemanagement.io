@@ -1,7 +1,6 @@
 // import the libraries to be used //
 const express = require("express");
 const mongodb = require ("mongodb");
-const mongoose = require ("mongoose");
 const cors = require("cors")
 
 // use apps and set the port //
@@ -59,9 +58,6 @@ app.post("/makethings", (request, response) => {
         db.close();
     })
 })
-
-
-
 
  //test to show that the applicaiton is connected to the port //
 
